@@ -1,27 +1,51 @@
 {
-  "name": "random-people",
+  "name": "slashclub",
   "version": "0.1.0",
   "private": true,
-  "main": "./App.js",
   "dependencies": {
-    "expo": "31.0.5",
+    "@bugsnag/js": "^5.1.0",
+    "@bugsnag/plugin-react": "^5.1.0",
+    "@material-ui/core": "^3.8.3",
+    "@material-ui/icons": "3.0.2",
+    "accounting": "^0.4.1",
+    "axios": "^0.18.0",
+    "classnames": "^2.2.6",
+    "dialog-polyfill": "^0.4.10",
+    "firebase": "^5.5.4",
+    "google-libphonenumber": "^3.2.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.23.0",
+    "nanoid": "^2.0.1",
+    "node-sass": "^4.9.4",
+    "password-validator": "^4.1.1",
+    "prop-types": "^15.6.2",
+    "query-string": "^6.2.0",
     "react": "^16.6.3",
-    "react-art": "^16.6.3",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.6.3",
-    "react-native": "^0.57.5",
-    "react-native-web": "^0.9.8",
-    "react-scripts": "2.1.1"
+    "react-ga": "^2.5.3",
+    "react-google-maps": "^9.4.5",
+    "react-infinite-scroller": "^1.2.2",
+    "react-instantsearch-dom": "^5.3.1",
+    "react-media": "^1.8.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "react-slick": "^0.23.1",
+    "react-typed": "^1.1.0",
+    "slick-carousel": "^1.8.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:staging": "REACT_APP_ENV=staging npm run build",
+    "build:production": "REACT_APP_ENV=production npm run build",
+    "deploy:prod": "yarn build:production && yarn firebase:prod",
+    "deploy:staging": "yarn build:staging && yarn firebase:staging",
+    "firebase:staging": "firebase use dev && firebase deploy --only hosting:sandbox-slashclub",
+    "firebase:prod": "firebase deploy --only hosting:slashclub",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start-native": "expo start",
-    "android": "expo android",
-    "ios": "expo ios",
-    "build:ios": "expo build:ios",
-    "build:android": "expo build:android"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,10 +57,14 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-plugin-module-resolver": "^3.1.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx-source": "^6.22.0",
-    "babel-preset-expo": "^5.0.0",
-    "react-native-scripts": "^2.0.1"
+    "babel-eslint": "9.x",
+    "eslint": "5.6.0",
+    "eslint-config-react-app": "^3.0.4",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "firebase-tools": "6.2.2",
+    "prettier": "^1.14.3",
+    "yarn": "1.13.0"
   }
 }
